@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd579ad0-5ac6-4ff6-a8b2-3f7f8c0b32e3" name="Changes" comment="feat: add arguments parsing for main script" />
+    <list default="true" id="bd579ad0-5ac6-4ff6-a8b2-3f7f8c0b32e3" name="Changes" comment="feat: add requirements.txt">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,6 +132,7 @@
       <updated>1770208328087</updated>
       <workItem from="1770208329331" duration="26578000" />
       <workItem from="1770299224688" duration="1071000" />
+      <workItem from="1770314206681" duration="4193000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -162,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770300031693</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: add requirements.txt">
+      <option name="closed" value="true" />
+      <created>1770314437626</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1770314437626</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +196,8 @@
     <MESSAGE value="refactor: structure code into classes" />
     <MESSAGE value="refactor: replace unnecessary code" />
     <MESSAGE value="feat: add arguments parsing for main script" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add arguments parsing for main script" />
+    <MESSAGE value="feat: add requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add requirements.txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
