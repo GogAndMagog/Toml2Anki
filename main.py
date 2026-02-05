@@ -1,11 +1,8 @@
-import toml_loader
-
 from anki_genearor import  DeckGenerator
-from picture_loader import  PictureHandler
 from toml_loader import TomlLoader
 
 URL = r"https://raw.githubusercontent.com/zhukovsd/java-backend-interview-prep/refs/heads/master/data/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Java/Collections.toml"
-DESTINATION = r"C:/Users/user/PycharmProjects/Toml2Anki"
+DESTINATION = r"C:/Users/user/PycharmProjects/Toml2Anki/Test"
 PICTURE_URL = r"/java-backend-interview-prep/hibernate_entity_life_cycle.png"
 PICTURES_SOURCE = r"https://zhukovsd.github.io"
 

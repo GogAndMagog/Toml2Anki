@@ -14,6 +14,7 @@ class DeckGenerator:
             1607392319,
             'Simple Model',
             fields=[
+                # {'name': 'Id'},
                 {'name': 'Question'},
                 {'name': 'Answer'},
             ],
@@ -32,35 +33,32 @@ class DeckGenerator:
         return pattern.sub(r'<img src="\1"/>', text_data)
 
     @staticmethod
-    def upload_images(destination: str, text_data: str) -> list:
-        pictures = []
+    def upload_images(destination: str, text_data: str):
         DeckGenerator.replace_figure_tag(text_data)
         pattern = r'<img[^>]+src=["\']([^"\']+)["\']'
         matches = re.findall(pattern, text_data)
         for match in matches:
-            pictures.append(PictureHandler.download_picture_from_internet(destination, match))
-
-        return pictures
+            PictureHandler.download_picture_from_internet(destination, match)
 
     @staticmethod
     def generate_deck(destination: str, raw_data: dict):
 
         items = raw_data['items']
         model = DeckGenerator.get_deck_model()
-        pictures = []
 
         deck_name = raw_data['section'].get('title')
         deck = genanki.Deck(2059400110, deck_name)
 
         for item in items:
+            identifier = item['id']
             question = html.escape(item['question'])
             answer = html.escape(DeckGenerator.replace_figure_tag(item['answer']))
 
             html_answer = html.unescape(markdown.markdown(answer, extensions=['markdown.extensions.tables']))
-            pictures.append(DeckGenerator.upload_images(destination, html_answer))
+            DeckGenerator.upload_images(destination, html_answer)
 
             note = genanki.Note(model=model,
                                 fields=[question, html_answer], )
             deck.add_note(note)
 
-        genanki.Package(deck).write_to_file(f'{deck_name}.apkg')
+        genanki.Package(deck).write_to_file(f'{destination}\\{deck_name}.apkg')
