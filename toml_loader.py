@@ -1,9 +1,9 @@
 import tomllib
 import urllib.request
 
-def load_toml(url: str) -> dict:
+class TomlLoader:
 
-    file = urllib.request.urlopen(url).read()
-    toml = tomllib.loads(file.decode("utf-8"))
-
-    return toml
+    @staticmethod
+    def get_from_url(url: str) -> dict:
+        file = urllib.request.urlopen(url).read()
+        return tomllib.loads(file.decode("utf-8"))

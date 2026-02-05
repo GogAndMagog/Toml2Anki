@@ -4,81 +4,63 @@ import genanki
 import markdown
 import re
 
-from picture_loader import download_picture
+from picture_loader import PictureHandler
 
-def generate_test_deck():
-    model = genanki.Model(
-        1607392319,
-        'Simple Model',
-        fields=[
-            {'name': 'Question'},
-            {'name': 'Answer'},
-        ],
-        templates=[
-            {
-                'name': 'Card 1',
-                'qfmt': '{{Question}}',
-                'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
-            },
-        ],
-    )
+class DeckGenerator:
 
-    deck = genanki.Deck(
-        2059400110,
-        'My Deck'
-    )
+    @staticmethod
+    def get_deck_model() -> genanki.model.Model:
+        return genanki.Model(
+            1607392319,
+            'Simple Model',
+            fields=[
+                {'name': 'Question'},
+                {'name': 'Answer'},
+            ],
+            templates=[
+                {
+                    'name': 'Card 1',
+                    'qfmt': '{{Question}}',
+                    'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
+                },
+            ],
+        )
 
-    note = genanki.Note(
-        model=model,
-        fields=['Что такое Python?', 'Язык программирования']
-    )
+    @staticmethod
+    def replace_figure_tag(text_data: str) -> str:
+        pattern = re.compile(r'\{\{<\s*figure\s+[^>]*src="([^"]+)"[^>]*>\}\}')
+        return pattern.sub(r'<img src="\1"/>', text_data)
 
-    deck.add_note(note)
+    @staticmethod
+    def upload_images(destination: str, text_data: str) -> list:
+        pictures = []
+        DeckGenerator.replace_figure_tag(text_data)
+        pattern = r'<img[^>]+src=["\']([^"\']+)["\']'
+        matches = re.findall(pattern, text_data)
+        for match in matches:
+            pictures.append(PictureHandler.download_picture_from_internet(destination, match))
 
-    genanki.Package(deck).write_to_file('my_deck.apkg')
+        return pictures
 
-def get_deck_model() -> genanki.model.Model:
-   return genanki.Model(
-        1607392319,
-        'Simple Model',
-        fields=[
-            {'name': 'Question'},
-            {'name': 'Answer'},
-        ],
-        templates=[
-            {
-                'name': 'Card 1',
-                'qfmt': '{{Question}}',
-                'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
-            },
-        ],
-    )
+    @staticmethod
+    def generate_deck(destination: str, raw_data: dict):
 
-def replace_figure_tag(text_data: str):
-    pattern = re.compile(r'\{\{<\s*figure\s+[^>]*src="([^"]+)"[^>]*>\}\}')
-    return pattern.sub(r'<img src="\1"/>', text_data)
+        items = raw_data['items']
+        model = DeckGenerator.get_deck_model()
+        pictures = []
 
-def check_for_images(text_data: str):
-    replace_figure_tag(text_data)
-    pattern = r'<img[^>]+src=["\']([^"\']+)["\']'
-    matches = re.findall(pattern, text_data)
-    for match in matches:
-        download_picture(match, )
+        deck_name = raw_data['section'].get('title')
+        deck = genanki.Deck(2059400110, deck_name)
 
-def generate_deck(raw_data: dict):
+        for item in items:
+            question = html.escape(item['question'])
+            answer = html.escape(DeckGenerator.replace_figure_tag(item['answer']))
 
-    items = raw_data['items']
-    model = get_deck_model()
+            html_answer = html.unescape(markdown.markdown(answer, extensions=['markdown.extensions.tables']))
+            pictures.append(DeckGenerator.upload_images(destination, html_answer))
 
-    deck_name = raw_data['section'].get('title')
-    deck = genanki.Deck(2059400110, deck_name)
+            note = genanki.Note(model=model,
+                                fields=[question, html_answer], )
+            deck.add_note(note)
 
-    for item in items:
-        question = html.escape(item['question'])
-        answer = html.escape(replace_figure_tag(item['answer']))
-        html_answer = html.unescape(markdown.markdown(answer, extensions=['markdown.extensions.tables']))
-        note = genanki.Note(model=model,
-                            fields=[question, html_answer],)
-        deck.add_note(note)
-
-    genanki.Package(deck).write_to_file(f'{deck_name}.apkg')
+        genanki.Package(deck).write_to_file(f'{deck_name}.apkg')
