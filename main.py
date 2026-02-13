@@ -12,9 +12,13 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Пример скрипта для чтения аргументов командной строки.')
 
     parser.add_argument('url', type=str, help='Ссылка на TOML, из репозитория')
-    parser.add_argument('path', type=str, help='Папка, куда будет сохранена колода')
+    parser.add_argument('anki_path', type=str, help='Папка, куда будет сохранена колода')
+    parser.add_argument('--pictures_path', type=str, help='Папка, куда будет сохранена колода')
 
     args = parser.parse_args()
 
+    pictures_path = args.anki_path if args.pictures_path is None else args.pictures_path
+
+    args.pictures_path = args.anki_path
     toml = TomlLoader.get_from_url(args.url)
-    DeckGenerator.generate_deck(args.path, toml)
+    DeckGenerator.generate_deck(args.anki_path, pictures_path, toml)

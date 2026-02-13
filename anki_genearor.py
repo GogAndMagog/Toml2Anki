@@ -49,7 +49,7 @@ class DeckGenerator:
             PictureHandler.download_picture_from_internet(destination, match)
 
     @staticmethod
-    def generate_deck(destination: str, raw_data: dict):
+    def generate_deck(destination: str, pictures_destination: str, raw_data: dict):
 
         items = raw_data['items']
         model = DeckGenerator.get_deck_model()
@@ -69,7 +69,7 @@ class DeckGenerator:
             # предупреждения
             html_answer = html.unescape(html_tmp_answer)
 
-            DeckGenerator.__upload_images(destination, html_answer)
+            DeckGenerator.__upload_images(pictures_destination, html_answer)
 
             note = genanki.Note(model=model,
                                 fields=[question, html_answer], )
