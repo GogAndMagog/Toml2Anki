@@ -19,6 +19,5 @@ if __name__ == '__main__':
 
     pictures_path = args.anki_path if args.pictures_path is None else args.pictures_path
 
-    args.pictures_path = args.anki_path
     toml = TomlLoader.get_from_url(args.url)
     DeckGenerator.generate_deck(args.anki_path, pictures_path, toml)
