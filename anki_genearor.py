@@ -7,6 +7,7 @@ import unicodedata
 import hashlib
 
 from picture_loader import PictureHandler
+from pathlib import Path
 
 class DeckGenerator:
 
@@ -51,6 +52,10 @@ class DeckGenerator:
     @staticmethod
     def generate_deck(destination: str, pictures_destination: str, raw_data: dict):
 
+        # Если нет нужных нам полей в toml, то пропускаем такой файл
+        if 'items' not in raw_data:
+            return
+
         items = raw_data['items']
         model = DeckGenerator.get_deck_model()
 
@@ -75,6 +80,9 @@ class DeckGenerator:
                                 fields=[question, html_answer], )
             deck.add_note(note)
 
+        # Создаём папку назначения, если её нет
+        dir_path = Path(destination)
+        dir_path.mkdir(parents=True, exist_ok=True)
         # Нормализуем путь, нужно для корректного отображения имени колоды, в разеных ОС
         normalized_destination = unicodedata.normalize("NFC", f'{destination}\\{deck_name}.apkg')
 
