@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd579ad0-5ac6-4ff6-a8b2-3f7f8c0b32e3" name="Changes" comment="feat: add README.md">
+    <list default="true" id="bd579ad0-5ac6-4ff6-a8b2-3f7f8c0b32e3" name="Changes" comment="fix: create folder for deck if it not exists&#10;&#10;Also skips tomls that doesn't fit questions structure.">
+      <change afterPath="$PROJECT_DIR$/src/script/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/load_all.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/github_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_genearor.py" beforeDir="false" afterPath="$PROJECT_DIR$/anki_genearor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anki_genearor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/anki_genearor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/download_by_url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/picture_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/picture_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/toml_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/toml_loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +55,9 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.ORM Deck.executor": "Run",
     "Python.anki_genearor.executor": "Run",
+    "Python.load_all.executor": "Run",
     "Python.loader.executor": "Debug",
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -60,7 +68,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.download_by_url">
     <configuration name="ORM Deck" type="PythonConfigurationType" factoryName="Python">
       <module name="Toml2Anki" />
       <option name="ENV_FILES" value="" />
@@ -77,7 +85,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\PycharmProjects\Toml2Anki\src\script\download_by_url.py" />
       <option name="PARAMETERS" value="&quot;https://raw.githubusercontent.com/zhukovsd/java-backend-interview-prep/refs/heads/master/data/%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B1%D0%B0%D0%B7%D0%B0%D0%BC%D0%B8%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/ORM.toml&quot; &quot;$PROJECT_DIR$/Test&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -86,7 +94,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="download_by_url" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Toml2Anki" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,8 +109,32 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="&quot;https://raw.githubusercontent.com/zhukovsd/java-backend-interview-prep/refs/heads/master/data/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Java/Collections.toml&quot; &quot;$PROJECT_DIR$/Test&quot;" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\PycharmProjects\Toml2Anki\src\script\download_by_url.py" />
+      <option name="PARAMETERS" value="&quot;https://raw.githubusercontent.com/zhukovsd/java-backend-interview-prep/refs/heads/master/data/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Java/Collections.toml&quot; &quot;$PROJECT_DIR$/Test&quot; --pictures_path &quot;$PROJECT_DIR$/Test/PIC&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="load_all" type="PythonConfigurationType" factoryName="Python">
+      <module name="Toml2Anki" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\PycharmProjects\Toml2Anki\src\script\load_all.py" />
+      <option name="PARAMETERS" value="--destination_directory &quot;C:\Users\user\PycharmProjects\Toml2Anki\Test\Decks&quot; --archive" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -111,7 +143,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
+      <item itemvalue="Python.download_by_url" />
+      <item itemvalue="Python.load_all" />
       <item itemvalue="Python.ORM Deck" />
     </list>
   </component>
@@ -133,7 +166,8 @@
       <workItem from="1770208329331" duration="26578000" />
       <workItem from="1770299224688" duration="1071000" />
       <workItem from="1770314206681" duration="6050000" />
-      <workItem from="1770970758369" duration="4164000" />
+      <workItem from="1770970758369" duration="23176000" />
+      <workItem from="1771061551550" duration="8199000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -183,7 +217,39 @@
       <option name="project" value="LOCAL" />
       <updated>1770318600190</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix: added path normalization and minor fixes&#10;&#10;Path normalization needed for correct displaying of cyrillic filenames.&#10;Added unique model and deck ids generation by name.">
+      <option name="closed" value="true" />
+      <created>1770975863028</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1770975863028</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: separate anki path and pictures path&#10;&#10;Add additional optional parameter --pictures_path for download pictures into another directory.">
+      <option name="closed" value="true" />
+      <created>1771001516465</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1771001516465</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactor: remove unused code">
+      <option name="closed" value="true" />
+      <created>1771008883772</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1771008883772</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: create folder for deck if it not exists&#10;&#10;Also skips tomls that doesn't fit questions structure.">
+      <option name="closed" value="true" />
+      <created>1771009010862</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1771009010862</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,32 +273,23 @@
     <MESSAGE value="feat: add arguments parsing for main script" />
     <MESSAGE value="feat: add requirements.txt" />
     <MESSAGE value="feat: add README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add README.md" />
+    <MESSAGE value="fix: added path normalization and minor fixes&#10;&#10;Path normalization needed for correct displaying of cyrillic filenames.&#10;Added unique model and deck ids generation by name." />
+    <MESSAGE value="feat: separate anki path and pictures path&#10;&#10;Add additional optional parameter --pictures_path for download pictures into another directory." />
+    <MESSAGE value="refactor: remove unused code" />
+    <MESSAGE value="fix: create folder for deck if it not exists&#10;&#10;Also skips tomls that doesn't fit questions structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: create folder for deck if it not exists&#10;&#10;Also skips tomls that doesn't fit questions structure." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/anki_genearor.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="Path.cwd()" language="Python" />
-        <watch expression="PICTURES_DESTINATION" language="Python" />
-        <watch expression="path" />
-        <watch expression="args" />
-        <watch expression="item['answer']" language="Python" />
-        <watch expression="markdown.markdown(answer, extensions=['markdown.extensions.tables'])" language="Python" />
+        <watch expression="response.json()" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Toml2Anki$ORM_Deck.coverage" NAME="ORM Deck Coverage Results" MODIFIED="1770299599343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Toml2Anki$main.coverage" NAME="main Coverage Results" MODIFIED="1770974062720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Toml2Anki$main.coverage" NAME="main Coverage Results" MODIFIED="1771001387180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Toml2Anki$load_all.coverage" NAME="load_all Coverage Results" MODIFIED="1771072248017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Toml2Anki$anki_genearor.coverage" NAME="anki_genearor Coverage Results" MODIFIED="1770213541666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Toml2Anki$loader.coverage" NAME="loader Coverage Results" MODIFIED="1770210208796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

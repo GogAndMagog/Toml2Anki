@@ -1,0 +1,7 @@
+[app]
+    owner = "zhukovsd"
+    repo = "java-backend-interview-prep"
+    sha = "123e22e8c2e73f52e3d6d4dbc527bb14d32a85ea"
+    toml_folder = "data"
+    exclude_tomls = ["Work experience.toml"]
+    destination_directory = "Enter your path"

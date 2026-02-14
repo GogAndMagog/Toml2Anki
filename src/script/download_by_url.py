@@ -1,7 +1,7 @@
 import argparse
 
-from anki_genearor import  DeckGenerator
-from toml_loader import TomlLoader
+from src.service.anki_genearor import  DeckGenerator
+from src.service.toml_loader import TomlLoader
 
 def print_hi(name):
     print(f'Hi, {name}')
