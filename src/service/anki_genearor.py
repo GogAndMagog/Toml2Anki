@@ -6,7 +6,7 @@ import re
 import unicodedata
 import hashlib
 
-from picture_loader import PictureHandler
+from service.picture_loader import PictureHandler
 from pathlib import Path
 
 class DeckGenerator:

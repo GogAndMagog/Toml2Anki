@@ -2,16 +2,26 @@ import tomllib
 import argparse
 import os
 import zipfile
+import sys
 
-from src.service.github_parser import GithubParser
-
-from src.service.anki_genearor import  DeckGenerator
-from src.service.toml_loader import TomlLoader
+from pathlib import Path
+from service.github_parser import GithubParser
+from service.anki_genearor import DeckGenerator
+from service.toml_loader import TomlLoader
 from urllib.parse import quote
 
 if __name__ == '__main__':
+
+    if getattr(sys, "frozen", False):
+        # Скрипт упакован в PyInstaller
+        base_path = Path(sys.executable).parent
+    else:
+        base_path = Path(__file__).resolve().parent
+
+    config_path = base_path / "config.toml"
+
     # Загрузка конфига
-    with open("config.toml", "rb") as config_file:
+    with open(config_path, "rb") as config_file:
         config = tomllib.load(config_file)
     owner = config['app']['owner']
     repo = config['app']['repo']
@@ -44,6 +54,7 @@ if __name__ == '__main__':
         if not any(pattern in toml_path[1] for pattern in encoded_exclude_tomls):
             toml = TomlLoader.get_from_url(toml_path[1])
             DeckGenerator.generate_deck(args.destination_directory + '\\' + toml_path[0], args.destination_directory, toml)
+            if 'section' in toml: print(f"Колода \"{toml['section'].get('title')}\" сгенерирована")
 
     # Архивирование папки, если нужно
     if args.archive:
@@ -58,3 +69,5 @@ if __name__ == '__main__':
 
                     relative_path = os.path.relpath(full_path, args.destination_directory)
                     z.write(full_path, arcname=relative_path)
+
+        print("Архив создан")

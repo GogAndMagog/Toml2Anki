@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd579ad0-5ac6-4ff6-a8b2-3f7f8c0b32e3" name="Changes" comment="fix: create folder for deck if it not exists&#10;&#10;Also skips tomls that doesn't fit questions structure.">
-      <change afterPath="$PROJECT_DIR$/src/script/config.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/script/load_all.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/github_parser.py" afterDir="false" />
+    <list default="true" id="bd579ad0-5ac6-4ff6-a8b2-3f7f8c0b32e3" name="Changes" comment="feat: create new script for download whole decks in one action">
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Toml2Anki.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Toml2Anki.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_genearor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/anki_genearor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/download_by_url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/picture_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/picture_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/toml_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/toml_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/download_by_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/download_by_url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/load_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/download_all_by_repo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/anki_genearor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/anki_genearor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +54,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.ORM Deck.executor": "Run",
     "Python.anki_genearor.executor": "Run",
+    "Python.download_by_url.executor": "Run",
     "Python.load_all.executor": "Run",
     "Python.loader.executor": "Debug",
     "Python.main.executor": "Run",
@@ -64,10 +64,20 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "ai.playground.ignore.import.keys.banner.in.settings": "true",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/user/PycharmProjects/Toml2Anki/dist",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\Toml2Anki\dist" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\Toml2Anki\src\script" />
+      <recent name="C:\Users\user\PycharmProjects\Toml2Anki\src\service" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.download_by_url">
     <configuration name="ORM Deck" type="PythonConfigurationType" factoryName="Python">
       <module name="Toml2Anki" />
@@ -109,7 +119,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="C:\Users\user\PycharmProjects\Toml2Anki\src\script\download_by_url.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/script/download_by_url.py" />
       <option name="PARAMETERS" value="&quot;https://raw.githubusercontent.com/zhukovsd/java-backend-interview-prep/refs/heads/master/data/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Java/Collections.toml&quot; &quot;$PROJECT_DIR$/Test&quot; --pictures_path &quot;$PROJECT_DIR$/Test/PIC&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -133,7 +143,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="C:\Users\user\PycharmProjects\Toml2Anki\src\script\load_all.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/script/download_all_by_repo.py" />
       <option name="PARAMETERS" value="--destination_directory &quot;C:\Users\user\PycharmProjects\Toml2Anki\Test\Decks&quot; --archive" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,7 +177,9 @@
       <workItem from="1770299224688" duration="1071000" />
       <workItem from="1770314206681" duration="6050000" />
       <workItem from="1770970758369" duration="23176000" />
-      <workItem from="1771061551550" duration="8199000" />
+      <workItem from="1771061551550" duration="9071000" />
+      <workItem from="1771091614438" duration="2643000" />
+      <workItem from="1771142502961" duration="6710000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -249,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771009010862</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat: create new script for download whole decks in one action">
+      <option name="closed" value="true" />
+      <created>1771073217364</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1771073217364</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,9 +297,19 @@
     <MESSAGE value="feat: separate anki path and pictures path&#10;&#10;Add additional optional parameter --pictures_path for download pictures into another directory." />
     <MESSAGE value="refactor: remove unused code" />
     <MESSAGE value="fix: create folder for deck if it not exists&#10;&#10;Also skips tomls that doesn't fit questions structure." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: create folder for deck if it not exists&#10;&#10;Also skips tomls that doesn't fit questions structure." />
+    <MESSAGE value="feat: create new script for download whole decks in one action" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create new script for download whole decks in one action" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/script/download_all_by_repo.py</url>
+          <line>56</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="response.json()" language="Python" />
@@ -287,9 +317,10 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Toml2Anki$download_by_url.coverage" NAME="download_by_url Coverage Results" MODIFIED="1771150164873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Toml2Anki$ORM_Deck.coverage" NAME="ORM Deck Coverage Results" MODIFIED="1770299599343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Toml2Anki$main.coverage" NAME="main Coverage Results" MODIFIED="1771001387180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Toml2Anki$load_all.coverage" NAME="load_all Coverage Results" MODIFIED="1771072248017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Toml2Anki$load_all.coverage" NAME="load_all Coverage Results" MODIFIED="1771148817688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Toml2Anki$anki_genearor.coverage" NAME="anki_genearor Coverage Results" MODIFIED="1770213541666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Toml2Anki$loader.coverage" NAME="loader Coverage Results" MODIFIED="1770210208796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

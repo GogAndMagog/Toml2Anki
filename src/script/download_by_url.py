@@ -3,12 +3,7 @@ import argparse
 from src.service.anki_genearor import  DeckGenerator
 from src.service.toml_loader import TomlLoader
 
-def print_hi(name):
-    print(f'Hi, {name}')
-
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
     parser = argparse.ArgumentParser(description='Пример скрипта для чтения аргументов командной строки.')
 
     parser.add_argument('url', type=str, help='Ссылка на TOML, из репозитория')
@@ -21,3 +16,4 @@ if __name__ == '__main__':
 
     toml = TomlLoader.get_from_url(args.url)
     DeckGenerator.generate_deck(args.anki_path, pictures_path, toml)
+    if 'section' in toml: print(f"Колода \"{toml['section'].get('title')}\" сгенерирована")
