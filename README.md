@@ -5,7 +5,7 @@
 
 Шаблон вызова:
 
-<pre>download_by_url.exe|main.py "url" "path"</pre>
+<pre>download_by_url.exe|download_by_url.py "url" "path"</pre>
 
 url - урл в интернете, указывающий най TOML-файл <br/>
 path - путь в вашей файловой системе, куда вы хотите сохранить колоду
@@ -48,4 +48,4 @@ Url-ы можно найти в репозитории Сергея Жукова
 
 Т.к. большинство параметров меняться не будет, при стандартном сценарии, то пример вызова скрипта будет таким:
 
-<pre>python download_all_by_repo.py --sha "123e22e8c2e73f52e3d6d4dbc527bb14d32a85ea" --destination_directory "Ваш путь для сохранения колод" --archive </pre>
+<pre>download_all_by_repo.exe|download_all_by_repo.py --sha "123e22e8c2e73f52e3d6d4dbc527bb14d32a85ea" --destination_directory "Ваш путь для сохранения колод" --archive </pre>
