@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd579ad0-5ac6-4ff6-a8b2-3f7f8c0b32e3" name="Changes" comment="feat: create new script for download whole decks in one action">
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/script/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Toml2Anki.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Toml2Anki.iml" afterDir="false" />
+    <list default="true" id="bd579ad0-5ac6-4ff6-a8b2-3f7f8c0b32e3" name="Changes" comment="feat: add new script download_all_by_repo.py for download whole decks in one action">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/download_by_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/download_by_url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/load_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/download_all_by_repo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/anki_genearor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/anki_genearor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +173,7 @@
       <workItem from="1770970758369" duration="23176000" />
       <workItem from="1771061551550" duration="9071000" />
       <workItem from="1771091614438" duration="2643000" />
-      <workItem from="1771142502961" duration="6710000" />
+      <workItem from="1771142502961" duration="8388000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -269,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771073217364</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: add new script download_all_by_repo.py for download whole decks in one action">
+      <option name="closed" value="true" />
+      <created>1771151209547</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1771151209547</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +300,8 @@
     <MESSAGE value="refactor: remove unused code" />
     <MESSAGE value="fix: create folder for deck if it not exists&#10;&#10;Also skips tomls that doesn't fit questions structure." />
     <MESSAGE value="feat: create new script for download whole decks in one action" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create new script for download whole decks in one action" />
+    <MESSAGE value="feat: add new script download_all_by_repo.py for download whole decks in one action" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add new script download_all_by_repo.py for download whole decks in one action" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
